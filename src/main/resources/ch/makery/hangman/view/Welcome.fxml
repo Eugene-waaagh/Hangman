@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeController">
+   <children>
+      <Button defaultButton="true" layoutX="250.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleGetStarted" text="Enter Game" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" />
+      <Label layoutX="153.0" layoutY="58.0" text="Hangman Game">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../images/welcome.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
