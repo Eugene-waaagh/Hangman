@@ -9,9 +9,14 @@ import scalafx.application.JFXApp
 import scalafx.scene.control.Alert.AlertType
 
 class HangmanGameController(
-                           private val wordLabel : Label,
-                           private val firstHintLabel : Label,
-                           private val secondHintLabel : Label,
-                           private val chancesLabel : Label,
-                           private val hangmanField : TextField
-                           )
+                             private val wordLabel : Label,
+                             private val firstHintLabel : Label,
+                             private val secondHintLabel : Label,
+                             private val chancesLabel : Label,
+                             private val hangmanField : TextField
+                           ) {
+
+  val chances = 6
+}
+
+//

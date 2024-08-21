@@ -1,5 +1,8 @@
 package ch.makery.hangman
 
+import ch.makery.hangman.model.Word
+import ch.makery.hangman.util.Database
+import ch.makery.hangman.view.HangmanRulesDialogController
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage
 import scalafx.scene.Scene
@@ -44,6 +47,32 @@ object MainApp extends JFXApp {
     val roots = loader.getRoot[jfxs.layout.AnchorPane]
     this.roots.setCenter(roots)
   }
+
+  def showRules(): Boolean = {
+    val resource = getClass.getResourceAsStream("view/HangmanRulesDialog.fxml")
+    val loader = new FXMLLoader(null, NoDependencyResolver)
+    loader.load(resource);
+    val roots2  = loader.getRoot[jfxs.Parent]
+    val control = loader.getController[HangmanRulesDialogController#Controller]
+
+    val dialog = new Stage() {
+      initModality(Modality.ApplicationModal)
+      initOwner(stage)
+      scene = new Scene {
+        //stylesheets += getClass.getResource("view/DarkTheme.css").toString
+        root = roots2
+      }
+    }
+    control.dialogStage = dialog
+    dialog.showAndWait()
+    control.okClicked
+  }
+
+  Database.setupDB()
+  val wordData = new ObservableBuffer[Word]()
+
+  wordData ++= Word.getAllWords
+
 
   showWelcome()
 }

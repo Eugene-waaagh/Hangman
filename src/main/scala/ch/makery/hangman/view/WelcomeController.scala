@@ -2,6 +2,7 @@ package ch.makery.hangman.view
 
 import ch.makery.hangman.MainApp
 import javafx.scene.control.TextField
+import scalafx.event.ActionEvent
 import scalafxml.core.macros.sfxml
 
 @sfxml
@@ -10,7 +11,7 @@ class WelcomeController() {
     MainApp.showHangmanGame()
   }
 
-  def handleRules(): Unit = {
-
+  def handleRules(action : ActionEvent): Unit = {
+    val okClicked = MainApp.showRules()
   }
 }
