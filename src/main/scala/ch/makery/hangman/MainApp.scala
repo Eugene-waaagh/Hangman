@@ -13,7 +13,7 @@ import scalafx.stage.{Modality, Stage}
 
 object MainApp extends JFXApp {
 
-  val rootResource = getClass.getResource("/ch/makery/hangman/view/RootLayout.fxml")
+  val rootResource = getClass.getResource("view/RootLayout.fxml")
 
   val loader = new FXMLLoader(rootResource, NoDependencyResolver)
 
@@ -30,7 +30,7 @@ object MainApp extends JFXApp {
     }
 
   def showWelcome(): Unit = {
-    val resource = getClass.getResource("/view/Welcome.fxml")
+    val resource = getClass.getResource("view/Welcome.fxml")
     val loader = new FXMLLoader(resource, NoDependencyResolver)
     loader.load();
     val roots = loader.getRoot[jfxs.layout.AnchorPane]
@@ -38,11 +38,11 @@ object MainApp extends JFXApp {
   }
 
   def showHangmanGame(): Unit = {
-//    val resource = getClass.getResource("/ch/makery/hangman/view/HangmanGame.fxml")
-//    val loader = new FXMLLoader(resource, NoDependencyResolver)
-//    loader.load();
-//    val roots = loader.getRoot[jfxs.layout.AnchorPane]
-//    this.roots.setCenter(roots)
+    val resource = getClass.getResource("view/HangmanGame.fxml")
+    val loader = new FXMLLoader(resource, NoDependencyResolver)
+    loader.load();
+    val roots = loader.getRoot[jfxs.layout.AnchorPane]
+    this.roots.setCenter(roots)
   }
 
   showWelcome()

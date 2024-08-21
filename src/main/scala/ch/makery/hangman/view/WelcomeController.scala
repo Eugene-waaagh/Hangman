@@ -7,6 +7,10 @@ import scalafxml.core.macros.sfxml
 @sfxml
 class WelcomeController() {
   def handleGetStarted(): Unit = {
-    //MainApp.showHangmanGame()
+    MainApp.showHangmanGame()
+  }
+
+  def handleRules(): Unit = {
+
   }
 }
