@@ -17,8 +17,42 @@ class HangmanGameController(
                              private val firstHintLabel : Label,
                              private val secondHintLabel : Label,
                              private val chancesLabel : Label,
-                             private val hangmanField : TextArea
+                             private val hangmanField : TextArea,
+
+                             private val buttonA: javafx.scene.control.Button,
+                             private val buttonB: javafx.scene.control.Button,
+                             private val buttonC: javafx.scene.control.Button,
+                             private val buttonD: javafx.scene.control.Button,
+                             private val buttonE: javafx.scene.control.Button,
+                             private val buttonF: javafx.scene.control.Button,
+                             private val buttonG: javafx.scene.control.Button,
+                             private val buttonH: javafx.scene.control.Button,
+                             private val buttonI: javafx.scene.control.Button,
+                             private val buttonJ: javafx.scene.control.Button,
+                             private val buttonK: javafx.scene.control.Button,
+                             private val buttonL: javafx.scene.control.Button,
+                             private val buttonM: javafx.scene.control.Button,
+                             private val buttonN: javafx.scene.control.Button,
+                             private val buttonO: javafx.scene.control.Button,
+                             private val buttonP: javafx.scene.control.Button,
+                             private val buttonQ: javafx.scene.control.Button,
+                             private val buttonR: javafx.scene.control.Button,
+                             private val buttonS: javafx.scene.control.Button,
+                             private val buttonT: javafx.scene.control.Button,
+                             private val buttonU: javafx.scene.control.Button,
+                             private val buttonV: javafx.scene.control.Button,
+                             private val buttonW: javafx.scene.control.Button,
+                             private val buttonX: javafx.scene.control.Button,
+                             private val buttonY: javafx.scene.control.Button,
+                             private val buttonZ: javafx.scene.control.Button
                            ) {
+
+  val buttons = List(buttonA, buttonB, buttonC, buttonD, buttonE, buttonF, buttonG, buttonH, buttonI, buttonJ, buttonK,
+    buttonL, buttonM, buttonN, buttonO, buttonP, buttonQ, buttonR, buttonS, buttonT, buttonU, buttonV, buttonW, buttonX, buttonY, buttonZ)
+
+  def enableAllButtons(): Unit = {
+    buttons.foreach(_.setDisable(false))
+  }
 
   //Initializing the game things
   var chances: Int = 6
@@ -55,12 +89,13 @@ class HangmanGameController(
 
         hangmanField.text = drawHangman(wrongs)
       }
-
+      handleLabelField()
     }
 
   //The button to call the function above
     def handleGameStart(actionEvent: ActionEvent): Unit = {
       startGame()
+      enableAllButtons()
     }
 
     def drawHangman(wrongCounter: Int): String = {
@@ -76,6 +111,7 @@ class HangmanGameController(
     }
 
     def handleLabelField(): Unit = {
+      wordLabel.text.unbind()
       wordLabel.text = hiddenWord.value
       hangmanField.text = drawHangman(wrongs)
       chancesLabel.text = (chances - wrongs).toString
@@ -83,15 +119,6 @@ class HangmanGameController(
       secondHintLabel.text = currentWord.secondHint.value
     }
 
-    def checkGameStatus(chances: Int, wrongs: Int, hiddenWord: String, currentWord: Word): Unit = {
-      if (chances - wrongs == 0) {
-        new Alert(AlertType.Warning, s"You lost! The word is ${currentWord.word.value}").showAndWait()
-        startGame()
-      } else if (hiddenWord == currentWord.word.value) {
-        new Alert(AlertType.Information, "You won!").showAndWait()
-        startGame()
-      }
-    }
 
     def handleButtonPress(actionEvent: ActionEvent): Unit = {
       val button = actionEvent.getSource.asInstanceOf[javafx.scene.control.Button]
@@ -113,14 +140,21 @@ class HangmanGameController(
       }
 
       handleLabelField()
-      checkGameStatus(chances, wrongs, hiddenWord.value, currentWord)
+      if (wrongs == chances) {
+        new Alert(AlertType.Warning, s"You lost! The word is ${currentWord.word.value}").showAndWait()
+        startGame()
+        enableAllButtons()
+      } else if (hiddenWord.value == currentWord.word.value) {
+        new Alert(AlertType.Information, "You won!").showAndWait()
+        startGame()
+        enableAllButtons()
+      }
     }
-
-    initialize()
 
     //Start the game straightaway, when moved from welcomepage to HangmanGame
     def initialize(): Unit = {
       startGame()
     }
 
+    initialize()
 }

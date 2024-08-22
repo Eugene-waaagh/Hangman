@@ -12,38 +12,38 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.hangman.view.HangmanGameController">
    <children>
       <TextArea fx:id="hangmanField" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="226.0" prefWidth="386.0" />
-      <Button layoutX="412.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleButtonPress" text="A" />
-      <Button layoutX="459.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleButtonPress" text="B" />
-      <Button layoutX="507.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleButtonPress" text="C" />
-      <Button layoutX="549.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleButtonPress" text="D" />
+      <Button fx:id="buttonA" layoutX="412.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleButtonPress" text="A" />
+      <Button fx:id="buttonB" layoutX="459.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleButtonPress" text="B" />
+      <Button fx:id="buttonC" layoutX="507.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleButtonPress" text="C" />
+      <Button fx:id="buttonD" layoutX="549.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleButtonPress" text="D" />
       <ButtonBar layoutX="296.0" layoutY="333.0" prefHeight="40.0" prefWidth="289.0">
         <buttons>
           <Button mnemonicParsing="false" onAction="#handleGameStart" prefHeight="26.0" prefWidth="130.0" text="Guess New Word" />
             <Button mnemonicParsing="false" text="Rules" />
         </buttons>
       </ButtonBar>
-      <Button layoutX="550.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleButtonPress" text="H" />
-      <Button layoutX="508.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleButtonPress" text="G" />
-      <Button layoutX="459.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleButtonPress" text="F" />
-      <Button layoutX="412.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleButtonPress" text="E" />
-      <Button layoutX="550.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleButtonPress" text="L" />
-      <Button layoutX="508.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleButtonPress" text="K" />
-      <Button layoutX="462.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleButtonPress" text="J" />
-      <Button layoutX="416.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleButtonPress" text="I" />
-      <Button layoutX="553.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonPress" text="P" />
-      <Button layoutX="507.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonPress" text="O" />
-      <Button layoutX="459.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonPress" text="N" />
-      <Button layoutX="412.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonPress" text="M" />
-      <Button layoutX="551.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleButtonPress" text="T" />
-      <Button layoutX="508.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleButtonPress" text="S" />
-      <Button layoutX="458.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleButtonPress" text="R" />
-      <Button layoutX="411.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleButtonPress" text="Q" />
-      <Button layoutX="549.0" layoutY="218.0" mnemonicParsing="false" onAction="#handleButtonPress" text="X" />
-      <Button layoutX="508.0" layoutY="218.0" mnemonicParsing="false" onAction="#handleButtonPress" text="W" />
-      <Button layoutX="459.0" layoutY="218.0" mnemonicParsing="false" onAction="#handleButtonPress" text="V" />
-      <Button layoutX="413.0" layoutY="218.0" mnemonicParsing="false" onAction="#handleButtonPress" text="U" />
-      <Button layoutX="459.0" layoutY="254.0" mnemonicParsing="false" onAction="#handleButtonPress" text="Z" />
-      <Button layoutX="412.0" layoutY="254.0" mnemonicParsing="false" onAction="#handleButtonPress" text="Y" />
+      <Button fx:id="buttonH" layoutX="550.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleButtonPress" text="H" />
+      <Button fx:id="buttonG" layoutX="508.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleButtonPress" text="G" />
+      <Button fx:id="buttonF" layoutX="459.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleButtonPress" text="F" />
+      <Button fx:id="buttonE" layoutX="412.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleButtonPress" text="E" />
+      <Button fx:id="buttonL" layoutX="550.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleButtonPress" text="L" />
+      <Button fx:id="buttonK" layoutX="508.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleButtonPress" text="K" />
+      <Button fx:id="buttonJ" layoutX="462.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleButtonPress" text="J" />
+      <Button fx:id="buttonI" layoutX="416.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleButtonPress" text="I" />
+      <Button fx:id="buttonP" layoutX="553.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonPress" text="P" />
+      <Button fx:id="buttonO" layoutX="507.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonPress" text="O" />
+      <Button fx:id="buttonN" layoutX="459.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonPress" text="N" />
+      <Button fx:id="buttonM" layoutX="412.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonPress" text="M" />
+      <Button fx:id="buttonT" layoutX="551.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleButtonPress" text="T" />
+      <Button fx:id="buttonS" layoutX="508.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleButtonPress" text="S" />
+      <Button fx:id="buttonR" layoutX="458.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleButtonPress" text="R" />
+      <Button fx:id="buttonQ" layoutX="411.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleButtonPress" text="Q" />
+      <Button fx:id="buttonX" layoutX="549.0" layoutY="218.0" mnemonicParsing="false" onAction="#handleButtonPress" text="X" />
+      <Button fx:id="buttonW" layoutX="508.0" layoutY="218.0" mnemonicParsing="false" onAction="#handleButtonPress" text="W" />
+      <Button fx:id="buttonV" layoutX="459.0" layoutY="218.0" mnemonicParsing="false" onAction="#handleButtonPress" text="V" />
+      <Button fx:id="buttonU" layoutX="413.0" layoutY="218.0" mnemonicParsing="false" onAction="#handleButtonPress" text="U" />
+      <Button fx:id="buttonZ" layoutX="459.0" layoutY="254.0" mnemonicParsing="false" onAction="#handleButtonPress" text="Z" />
+      <Button fx:id="buttonY" layoutX="412.0" layoutY="254.0" mnemonicParsing="false" onAction="#handleButtonPress" text="Y" />
       <GridPane layoutX="14.0" layoutY="244.0" prefHeight="120.0" prefWidth="281.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="68.0" />
