@@ -83,18 +83,44 @@ class HangmanGameController(
       secondHintLabel.text = currentWord.secondHint.value
     }
 
-    def checkGameStatus(): Unit = {
+    def checkGameStatus(chances: Int, wrongs: Int, hiddenWord: String, currentWord: Word): Unit = {
       if (chances - wrongs == 0) {
         new Alert(AlertType.Warning, s"You lost! The word is ${currentWord.word.value}").showAndWait()
         startGame()
-      } else if (hiddenWord.value == currentWord.word.value) {
-        new Alert(AlertType.None, "You won!").showAndWait()
+      } else if (hiddenWord == currentWord.word.value) {
+        new Alert(AlertType.Information, "You won!").showAndWait()
         startGame()
       }
     }
 
+    def handleButtonPress(actionEvent: ActionEvent): Unit = {
+      val button = actionEvent.getSource.asInstanceOf[javafx.scene.control.Button]
+      val guessedLetter = button.getText.charAt(0)
 
+      //Disable the button (unable to press again) after it is pressed
+      button.setDisable(true)
 
+      if(currentWord.word.value.contains(guessedLetter.toString)) {
+        for(i <- 0 until currentWord.word.value.length) {
+          if(currentWord.word.value.charAt(i).toString == guessedLetter.toString) {
+            hiddenWord.value = hiddenWord.value.updated(i, guessedLetter).toString
+          }
+        }
+      } else {
+        wrongs += 1
+        chancesLabel.text = (chances - wrongs).toString
+        hangmanField.text = drawHangman(wrongs)
+      }
 
+      handleLabelField()
+      checkGameStatus(chances, wrongs, hiddenWord.value, currentWord)
+    }
+
+    initialize()
+
+    //Start the game straightaway, when moved from welcomepage to HangmanGame
+    def initialize(): Unit = {
+      startGame()
+    }
 
 }
