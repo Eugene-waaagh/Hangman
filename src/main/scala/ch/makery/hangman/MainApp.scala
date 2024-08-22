@@ -75,4 +75,5 @@ object MainApp extends JFXApp {
 
 
   showWelcome()
+
 }
