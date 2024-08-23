@@ -74,7 +74,7 @@ object MainApp extends JFXApp {
   }
 
   def showDatabaseOverview(): Unit = {
-    val resource = getClass.getResource("view/HangmanDatabaseOverview.fxml")
+    val resource = getClass.getResource("view/HangmanGameDatabaseOverview.fxml")
     val loader = new FXMLLoader(resource, NoDependencyResolver)
     loader.load();
     val roots = loader.getRoot[jfxs.layout.AnchorPane]
@@ -96,7 +96,7 @@ object MainApp extends JFXApp {
       }
     }
     control.dialogStage = dialog
-    control.person = person
+    control.word = word
     dialog.showAndWait()
     control.okClicked
   }

@@ -20,6 +20,18 @@ class HangmanDatabaseOverviewController(
                               ) {
 
 
+  def handleDeleteWord(action : ActionEvent): Unit = {
+
+  }
+
+  def handleEditWord(action : ActionEvent): Unit = {
+
+  }
+
+  def handleNewWord(action : ActionEvent): Unit = {
+
+  }
+
 //  def handleDeleteWord(action : ActionEvent) = {
 //    val selectedIndex = wordTable.selectionModel().selectedIndex.value
 //    if (selectedIndex >= 0) {
