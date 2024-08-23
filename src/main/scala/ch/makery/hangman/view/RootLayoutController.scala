@@ -1,6 +1,6 @@
 package ch.makery.hangman.view
 
-import ch.makery.hangman.MainApp.{showDatabaseOverview, showHangmanGame, showRules}
+import ch.makery.hangman.MainApp.{showHangmanGame, showRules, showDatabaseOverview}
 import scalafx.event.ActionEvent
 import scalafxml.core.macros.sfxml
 

@@ -2,7 +2,6 @@ package ch.makery.hangman.view
 
 import ch.makery.hangman.model.Word
 import ch.makery.hangman.MainApp
-
 import scalafx.scene.control.{Alert, Label, TableColumn, TableView}
 import scalafxml.core.macros.sfxml
 import scalafx.beans.property.StringProperty
@@ -19,58 +18,31 @@ class HangmanDatabaseOverviewController(
                                 private val secondHintColumn : TableColumn[Word, String],
                               ) {
 
-
-  def handleDeleteWord(action : ActionEvent): Unit = {
-
+  //I can't delete from database somehow, but adding works
+  def handleDeleteWord(action : ActionEvent) = {
+    val selectedWord = wordTable.selectionModel().selectedItem.value
+    if (selectedWord != null) {
+      val result = selectedWord.delete()
+      wordTable.items().remove(selectedWord);
+    } else {
+      // Nothing selected.
+      val alert = new Alert(AlertType.Error){
+        initOwner(MainApp.stage)
+        title       = "No Selection"
+        headerText  = "No Word Selected"
+        contentText = "Please select a word in the table."
+      }.showAndWait()
+    }
   }
 
-  def handleEditWord(action : ActionEvent): Unit = {
-
+  def handleNewWord(action : ActionEvent) = {
+    val word = new Word("")
+    val okClicked = MainApp.showWordEditDialog(word);
+    if (okClicked) {
+      MainApp.wordData += word
+      val result = word.save()
+    }
   }
-
-  def handleNewWord(action : ActionEvent): Unit = {
-
-  }
-
-//  def handleDeleteWord(action : ActionEvent) = {
-//    val selectedIndex = wordTable.selectionModel().selectedIndex.value
-//    if (selectedIndex >= 0) {
-//      wordTable.items().remove(selectedIndex);
-//    } else {
-//      // Nothing selected.
-//      val alert = new Alert(AlertType.Error){
-//        initOwner(MainApp.stage)
-//        title       = "No Selection"
-//        headerText  = "No Person Selected"
-//        contentText = "Please select a person in the table."
-//      }.showAndWait()
-//    }
-//  }
-
-//  def handleNewWord(action : ActionEvent) = {
-//    val person = new Person("","")
-//    val okClicked = MainApp.showPersonEditDialog(Word);
-//    if (okClicked) {
-//      MainApp.personData += person
-//    }
-//  }
-//  def handleEditPerson(action : ActionEvent) = {
-//    val selectedPerson = personTable.selectionModel().selectedItem.value
-//    if (selectedPerson != null) {
-//      val okClicked = MainApp.showPersonEditDialog(selectedPerson)
-//
-//      if (okClicked) showPersonDetails(Some(selectedPerson))
-//
-//    } else {
-//      // Nothing selected.
-//      val alert = new Alert(Alert.AlertType.Warning){
-//        initOwner(MainApp.stage)
-//        title       = "No Selection"
-//        headerText  = "No Person Selected"
-//        contentText = "Please select a person in the table."
-//      }.showAndWait()
-//    }
-//  }
 
   //--------------------------------------------------------------------------------
   // initialize Table View display contents model

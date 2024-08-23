@@ -19,7 +19,6 @@
       <ButtonBar layoutX="296.0" layoutY="333.0" prefHeight="40.0" prefWidth="289.0">
         <buttons>
           <Button mnemonicParsing="false" onAction="#handleGameStart" prefHeight="26.0" prefWidth="130.0" text="Guess New Word" />
-            <Button mnemonicParsing="false" text="Rules" />
         </buttons>
       </ButtonBar>
       <Button fx:id="buttonH" layoutX="550.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleButtonPress" text="H" />

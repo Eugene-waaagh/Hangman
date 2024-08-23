@@ -8,6 +8,8 @@ import scalafx.event.ActionEvent
 import scalafx.Includes._
 import scalafx.application.JFXApp
 import scalafx.scene.control.Alert.AlertType
+import javafx.scene.control.Button
+
 
 import scala.util.Random
 
@@ -19,32 +21,32 @@ class HangmanGameController(
                              private val chancesLabel : Label,
                              private val hangmanField : TextArea,
 
-                             private val buttonA: javafx.scene.control.Button,
-                             private val buttonB: javafx.scene.control.Button,
-                             private val buttonC: javafx.scene.control.Button,
-                             private val buttonD: javafx.scene.control.Button,
-                             private val buttonE: javafx.scene.control.Button,
-                             private val buttonF: javafx.scene.control.Button,
-                             private val buttonG: javafx.scene.control.Button,
-                             private val buttonH: javafx.scene.control.Button,
-                             private val buttonI: javafx.scene.control.Button,
-                             private val buttonJ: javafx.scene.control.Button,
-                             private val buttonK: javafx.scene.control.Button,
-                             private val buttonL: javafx.scene.control.Button,
-                             private val buttonM: javafx.scene.control.Button,
-                             private val buttonN: javafx.scene.control.Button,
-                             private val buttonO: javafx.scene.control.Button,
-                             private val buttonP: javafx.scene.control.Button,
-                             private val buttonQ: javafx.scene.control.Button,
-                             private val buttonR: javafx.scene.control.Button,
-                             private val buttonS: javafx.scene.control.Button,
-                             private val buttonT: javafx.scene.control.Button,
-                             private val buttonU: javafx.scene.control.Button,
-                             private val buttonV: javafx.scene.control.Button,
-                             private val buttonW: javafx.scene.control.Button,
-                             private val buttonX: javafx.scene.control.Button,
-                             private val buttonY: javafx.scene.control.Button,
-                             private val buttonZ: javafx.scene.control.Button
+                             private val buttonA: Button,
+                             private val buttonB: Button,
+                             private val buttonC: Button,
+                             private val buttonD: Button,
+                             private val buttonE: Button,
+                             private val buttonF: Button,
+                             private val buttonG: Button,
+                             private val buttonH: Button,
+                             private val buttonI: Button,
+                             private val buttonJ: Button,
+                             private val buttonK: Button,
+                             private val buttonL: Button,
+                             private val buttonM: Button,
+                             private val buttonN: Button,
+                             private val buttonO: Button,
+                             private val buttonP: Button,
+                             private val buttonQ: Button,
+                             private val buttonR: Button,
+                             private val buttonS: Button,
+                             private val buttonT: Button,
+                             private val buttonU: Button,
+                             private val buttonV: Button,
+                             private val buttonW: Button,
+                             private val buttonX: Button,
+                             private val buttonY: Button,
+                             private val buttonZ: Button
                            ) {
 
   val buttons = List(buttonA, buttonB, buttonC, buttonD, buttonE, buttonF, buttonG, buttonH, buttonI, buttonJ, buttonK,
@@ -121,7 +123,7 @@ class HangmanGameController(
 
 
     def handleButtonPress(actionEvent: ActionEvent): Unit = {
-      val button = actionEvent.getSource.asInstanceOf[javafx.scene.control.Button]
+      val button = actionEvent.getSource.asInstanceOf[Button]
       val guessedLetter = button.getText.charAt(0)
 
       //Disable the button (unable to press again) after it is pressed
@@ -140,6 +142,10 @@ class HangmanGameController(
       }
 
       handleLabelField()
+      checkGameStatus()
+    }
+
+    def checkGameStatus(): Unit = {
       if (wrongs == chances) {
         new Alert(AlertType.Warning, s"You lost! The word is ${currentWord.word.value}").showAndWait()
         startGame()

@@ -19,13 +19,13 @@ import scalafx.stage.{Modality, Stage}
 
 object MainApp extends JFXApp {
 
-  val rootResource = getClass.getResource("view/RootLayout.fxml")
+  private val rootResource = getClass.getResource("view/RootLayout.fxml")
 
-  val loader = new FXMLLoader(rootResource, NoDependencyResolver)
+  private val loader = new FXMLLoader(rootResource, NoDependencyResolver)
 
   loader.load()
 
-  val roots = loader.getRoot[jfxs.layout.BorderPane]
+  private val roots = loader.getRoot[jfxs.layout.BorderPane]
 
   stage = new PrimaryStage {
     title = "Hangman"
@@ -73,15 +73,17 @@ object MainApp extends JFXApp {
     rulesInfo.showAndWait()
   }
 
+
+
   def showDatabaseOverview(): Unit = {
-    val resource = getClass.getResource("view/HangmanGameDatabaseOverview.fxml")
+    val resource = getClass.getResource("view/HangmanDatabaseOverview.fxml")
     val loader = new FXMLLoader(resource, NoDependencyResolver)
     loader.load();
     val roots = loader.getRoot[jfxs.layout.AnchorPane]
     this.roots.setCenter(roots)
   }
 
-  def showHangmanEditDialog(word: Word): Boolean = {
+  def showWordEditDialog(word: Word): Boolean = {
     val resource = getClass.getResourceAsStream("view/HangmanWordEditDialog.fxml")
     val loader = new FXMLLoader(null, NoDependencyResolver)
     loader.load(resource);
@@ -101,6 +103,7 @@ object MainApp extends JFXApp {
     control.okClicked
   }
 
+
   Database.setupDB()
   val wordData = new ObservableBuffer[Word]()
 
@@ -108,5 +111,7 @@ object MainApp extends JFXApp {
 
 
   showWelcome()
+
+
 
 }
