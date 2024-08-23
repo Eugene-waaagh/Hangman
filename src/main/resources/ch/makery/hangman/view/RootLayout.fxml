@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.hangman.view.RootLayoutController">
@@ -11,13 +12,22 @@
         <menus>
           <Menu mnemonicParsing="false" text="Database">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#handleDatabaseClick" text="View Database" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleDatabaseClick" text="View Database">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="D" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleRulesClick" text="Read Rules" />
-                  <MenuItem mnemonicParsing="false" onAction="#handlePlayHangman" text="Play Hangman" />
+              <MenuItem mnemonicParsing="false" onAction="#handleRulesClick" text="Read Rules">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="R" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#handlePlayHangman" text="Play Hangman">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="H" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
             </items>
           </Menu>
         </menus>
