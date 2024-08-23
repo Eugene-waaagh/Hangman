@@ -12,6 +12,7 @@
           <Menu mnemonicParsing="false" text="App">
             <items>
               <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Database" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
